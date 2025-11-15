@@ -10,7 +10,7 @@ class StereoPairViewer {
         this.rightImage = null;
         this.leftMesh = null;
         this.rightMesh = null;
-        this.disparity = 0;
+        this.disparity = -0.35;
         this.distance = 2.0;
 
         this.init();
