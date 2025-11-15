@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stereo Pair Viewer - WebXR</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background: #000;
+        }
+
+        #canvas-container {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            z-index: 100;
+            max-width: 300px;
+        }
+
+        h2 {
+            margin: 0 0 15px 0;
+            font-size: 18px;
+        }
+
+        .control-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        input[type="range"] {
+            width: 100%;
+        }
+
+        .value-display {
+            text-align: center;
+            margin-top: 5px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .file-input-group {
+            margin-bottom: 15px;
+        }
+
+        input[type="file"] {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        #enter-vr {
+            margin-top: 60px;
+        }
+
+        #VRButton {
+            margin-top: 60px;
+            display: block;
+        }
+
+        .control-group:last-of-type {
+            margin-bottom: 45px;
+        }
+
+        #info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container"></div>
+
+    <div id="controls">
+        <h2>Stereo Pair Viewer</h2>
+
+        <div class="file-input-group">
+            <label for="left-image">Left Image:</label>
+            <input type="file" id="left-image" accept="image/*">
+        </div>
+
+        <div class="file-input-group">
+            <label for="right-image">Right Image:</label>
+            <input type="file" id="right-image" accept="image/*">
+        </div>
+
+        <div class="control-group">
+            <label for="disparity">Disparity: <span id="disparity-value">0.00</span></label>
+            <input type="range" id="disparity" min="-2" max="2" step="0.01" value="0">
+            <div class="value-display">Adjust horizontal offset between stereo images</div>
+        </div>
+
+        <div class="control-group">
+            <label for="distance">Distance: <span id="distance-value">2.0</span>m</label>
+            <input type="range" id="distance" min="0.5" max="10" step="0.1" value="2">
+            <div class="value-display">Distance of image plane from viewer</div>
+        </div>
+
+        <button id="enter-vr">Enter VR</button>
+    </div>
+
+    <div id="info">
+        Load stereo images and click "Enter VR" to view in headset
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
