@@ -10,7 +10,7 @@ class StereoPairViewer {
         this.rightImage = null;
         this.leftMesh = null;
         this.rightMesh = null;
-        this.disparity = -0.35;
+        this.disparity = 0.35;
         this.distance = 2.0;
 
         this.init();
@@ -183,8 +183,8 @@ class StereoPairViewer {
 
         // Position both planes at the specified distance
         // Apply disparity as horizontal offset
-        this.leftMesh.position.set(this.disparity / 2, 0, -this.distance);
-        this.rightMesh.position.set(-this.disparity / 2, 0, -this.distance);
+        this.leftMesh.position.set(-this.disparity / 2, 0, -this.distance);
+        this.rightMesh.position.set(this.disparity / 2, 0, -this.distance);
     }
 
     loadImage(file, isLeft) {
