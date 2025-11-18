@@ -2,6 +2,8 @@
 
 A Three.js application for viewing stereo image pairs in virtual reality using WebXR.
 
+https://myint.github.io/stereo-pair-viewer/
+
 ## Features
 
 - **WebXR Support**: View stereo images in VR headsets
